@@ -13,7 +13,6 @@
     "@react-navigation/native": "^6.0.13",
     "@rneui/base": "github:react-native-elements/react-native-elements#base",
     "@rneui/themed": "github:react-native-elements/react-native-elements#themed",
-    "deprecated-react-native-prop-types": "^2.3.0",
     "react": "18.1.0",
     "react-native": "0.70.2",
     "react-native-gesture-handler": "^2.7.1",
@@ -21,18 +20,20 @@
     "react-native-reanimated-carousel": "^3.0.6",
     "react-native-safe-area-context": "^4.4.1",
     "react-native-screens": "^3.18.1",
-    "react-native-snap-carousel": "^3.9.1",
     "react-native-vector-icons": "^9.2.0",
-    "twrnc": "^3.4.0"
+    "twrnc": "^3.4.0",
+    "uninstall": "^0.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
     "babel-jest": "^26.6.3",
+    "deprecated-react-native-prop-types": "^2.3.0",
     "eslint": "^7.32.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "0.72.3",
+    "react-native-snap-carousel": "github:devDoubleH/react-native-snap-carousel",
     "react-test-renderer": "18.1.0"
   },
   "jest": {

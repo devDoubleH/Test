@@ -1,7 +1,6 @@
-import {View, SafeAreaView} from 'react-native';
+import {View, SafeAreaView, Image} from 'react-native';
 import React, {useState, useRef} from 'react';
 import {Avatar, Text} from '@rneui/themed';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import tw from 'twrnc';
 import Carousel from 'react-native-snap-carousel';
 
@@ -9,16 +8,21 @@ import Carousel from 'react-native-snap-carousel';
 import BtnGroup from './componenets/BtnGroup';
 
 const App = () => {
-  const [index, setIndex] = useState();
-
-  const FirstElement = () => (
-    <View style={tw`bg-black w-40 h-40`}>
-      <Text>uywsadjk</Text>
-    </View>
-  );
-  const SecondElement = () => <View style={tw`bg-blue-500 h-40`} />;
-
-  const [data, setData] = useState([FirstElement, SecondElement]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [data, setData] = useState([
+    {
+      title: 'First Item',
+      text: 'Lorem ipsum dolor sit amet',
+      image:
+        'https://images.pexels.com/photos/5426969/pexels-photo-5426969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      title: 'Second Item',
+      text: 'Lorem ipsum dolor sit amet',
+      image:
+        'https://i.picsum.photos/id/1032/2880/1800.jpg?hmac=5SLBdyPZBMyr5IBkIRfffZV10bP87Y7RrxVZX1vCefA',
+    },
+  ]);
 
   const carouselRef = useRef();
 
@@ -43,17 +47,28 @@ const App = () => {
       </View>
       {/* carousel */}
       <Carousel
+        layout={'default'}
+        layoutCardOffset={8}
         ref={carouselRef}
         data={data}
-        renderItem={({Item, index}) => (
-          <View style={tw`w-11/12 h-40`}>
-            <Item />
-          </View>
-        )}
         sliderWidth={400}
-        itemWidth={400}
+        itemWidth={350}
+        renderItem={({item, index}) => {
+          return (
+            <View
+              style={tw`flex w-96 flex-col w-full justify-center items-center`}>
+              <Image
+                source={{
+                  uri: item.image,
+                }}
+                style={tw`w-full h-32 rounded-3xl`}
+              />
+            </View>
+          );
+        }}
+        // enable dots
+        onSnapToItem={index => setActiveIndex(index)}
       />
-      <FirstElement />
     </SafeAreaView>
   );
 };
